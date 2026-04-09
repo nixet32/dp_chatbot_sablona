@@ -3,11 +3,17 @@
 Tento projekt predstavuje návrh a implementáciu univerzálnej šablóny pre e-commerce chatboty vo frameworku Rasa.
 .
 ├── rasa/                    # Rasa projekt (NLU, rules, domain, config)
+
 ├── actions/                 # custom actions
+
 ├── api_server.py            # backend API server
+
 ├── app.py                   # Gradio web rozhranie
+
 ├── docker-compose.yml       # kontajnerizácia projektu
+
 ├── generic_api_config.json  # mapovanie externého API
+
 ├── README.md
 
 ##  Demo
