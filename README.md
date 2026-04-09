@@ -17,26 +17,9 @@ Tento projekt predstavuje návrh a implementáciu univerzálnej šablóny pre e-
 ├── README.md
 
 ##  Demo
-
-url
+https://huggingface.co/spaces/Nxt2/template-rasa-ecommerce
 
 Používateľ si môže chatbot vyskúšať bez nutnosti lokálnej inštalácie.
-
-Projekt je rozdelený do viacerých vrstiev:
-
-- **Konverzačná vrstva (Rasa)**
-  - NLU (intenty, entity)
-  - Core (dialógový manažment)
-
-- **Aplikačná vrstva (Action Server)**
-  - vlastné akcie v Pythone
-  - spracovanie logiky (vyhľadávanie, košík, objednávky)
-
-- **Dátová vrstva**
-  - rôzne backendy (JSON, REST API)
-
-- **Backend adaptér**
-  - mapovanie medzi interným modelom a konkrétnym API
 
 ## Použité technológie
 
