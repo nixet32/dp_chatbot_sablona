@@ -6,7 +6,8 @@ __pycache__/
 .venv/
 venv/
 env/
-models/
+models/*
+!models/*.tar.gz
 .cache/
 tmp/
 logs/
