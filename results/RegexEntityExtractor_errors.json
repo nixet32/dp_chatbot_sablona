@@ -1,0 +1,50 @@
+[
+  {
+    "text": "ukáž mi produkty v kategórii shoes",
+    "entities": [
+      {
+        "start": 29,
+        "end": 34,
+        "value": "shoes",
+        "entity": "category"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "category",
+        "start": 29,
+        "end": 34,
+        "confidence_entity": 0.9972890615463257,
+        "value": "shoes",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "hľadám niečo z kategórie supplements",
+    "entities": [
+      {
+        "start": 25,
+        "end": 36,
+        "value": "supplements",
+        "entity": "category"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "category",
+        "start": 25,
+        "end": 36,
+        "confidence_entity": 0.9977635145187378,
+        "value": "supplements",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

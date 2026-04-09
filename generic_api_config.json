@@ -1,0 +1,31 @@
+{
+  "base_url": "http://localhost:8000",
+  "products": {
+    "endpoint": "/products",
+    "items_path": "",
+    "mapping": {
+      "id": "id",
+      "name": "name",
+      "category": "category",
+      "brand": "brand",
+      "price": "price",
+      "description": "description"
+    }
+  },
+  "stock": {
+    "endpoint": "/stock",
+    "items_path": "",
+    "mapping": {
+      "product_id": "product_id",
+      "stock": "stock"
+    }
+  },
+  "orders": {
+    "endpoint": "/orders",
+    "items_path": "",
+    "mapping": {
+      "order_id": "order_id",
+      "status": "status"
+    }
+  }
+}

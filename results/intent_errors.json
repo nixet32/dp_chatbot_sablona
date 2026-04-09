@@ -1,0 +1,34 @@
+[
+  {
+    "text": "čau",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5875997543334961
+    }
+  },
+  {
+    "text": "ahoj",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5837218165397644
+    }
+  },
+  {
+    "text": "asdfghjkl",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "return_policy",
+      "confidence": 0.009710680693387985
+    }
+  },
+  {
+    "text": "qwerty",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "nlu_fallback",
+      "confidence": 0.480477511882782
+    }
+  }
+]
