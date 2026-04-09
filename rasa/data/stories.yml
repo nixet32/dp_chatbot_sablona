@@ -1,0 +1,24 @@
+version: "3.1"
+
+stories:
+  - story: stock check with confirmation
+    steps:
+      - intent: check_stock
+      - action: action_route_check_stock
+      - intent: affirm
+      - action: action_set_candidate_as_product
+      - action: action_clear_candidate
+      - action: stock_form
+      - active_loop: stock_form
+      - action: stock_form
+      - active_loop: null
+      - action: action_check_stock
+
+  - story: order status via form
+    steps:
+      - intent: order_status
+      - action: order_status_form
+      - active_loop: order_status_form
+      - action: order_status_form
+      - active_loop: null
+      - action: action_get_order_status

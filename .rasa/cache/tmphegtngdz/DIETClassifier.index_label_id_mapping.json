@@ -1,0 +1,11 @@
+{
+  "0": "affirm",
+  "1": "check_stock",
+  "2": "deny",
+  "3": "goodbye",
+  "4": "greet",
+  "5": "help",
+  "6": "nlu_fallback",
+  "7": "order_status",
+  "8": "search_product"
+}

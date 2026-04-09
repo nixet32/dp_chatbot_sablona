@@ -1,0 +1,48 @@
+services:
+  api:
+    image: python:3.10-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: bash -c "pip install fastapi uvicorn requests && uvicorn api_server:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+
+  actions:
+    image: python:3.10-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: bash -c "pip install rasa-sdk requests && python -m rasa_sdk --actions actions.actions --port 5055"
+    environment:
+      BACKEND_PROVIDER: local_api
+      API_BASE_URL: http://api:8000
+    ports:
+      - "5055:5055"
+  rasa:
+    image: rasa/rasa:3.6.21-full
+    working_dir: /app/rasa
+    volumes:
+      - ./:/app
+    command: >
+      run --enable-api --cors "*"
+      --model /app/models
+      --credentials /app/rasa/credentials.yml
+      --endpoints /app/rasa/endpoints.yml
+      --port 5005
+    ports:
+      - "5005:5005"
+    depends_on:
+      - actions
+      - api
+
+  web:
+    image: python:3.10-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: bash -c "pip install gradio requests && python app.py"
+    ports:
+      - "7860:7860"
+    depends_on:
+      - rasa

@@ -1,0 +1,291 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - ahoj
+      - Ahoj
+      - čau
+      - Čau
+      - cau
+      - Cau
+      - čus
+      - Čus
+      - cus
+      - Cus
+      - nazdar
+      - Nazdar
+      - zdravím
+      - Zdravím
+      - zdravim
+      - Zdravim
+      - dobrý deň
+      - Dobrý deň
+      - dobry den
+      - hello
+      - hi
+
+  - intent: goodbye
+    examples: |
+      - dovidenia
+      - dopočutia
+      - maj sa
+      - majte sa
+      - zatiaľ
+      - zatial
+      - bye
+      - goodbye
+
+  - intent: help
+    examples: |
+      - pomoc
+      - čo vieš robiť
+      - ako mi vieš pomôcť
+      - čo všetko dokážeš
+      - čo všetko vieš
+
+  - intent: list_products
+    examples: |
+      - aké produkty máš
+      - Aké produkty máš?
+      - ake produkty mas
+      - čo máš v ponuke
+      - co mas v ponuke
+      - aké máš dostupné produkty
+      - ake mas dostupne produkty
+      - ukáž mi produkty
+      - ukaz mi produkty
+      - zobraz produkty
+      - čo predávaš
+      - co predavas
+      - aký máš sortiment
+      - aky mas sortiment
+
+  - intent: list_in_stock_products
+    examples: |
+      - čo je na sklade
+      - co je na sklade
+      - čo máš na sklade
+      - co mas na sklade
+      - ktoré produkty sú na sklade
+      - ktore produkty su na sklade
+      - ktoré produkty sú dostupné
+      - ktore produkty su dostupne
+      - čo je dostupné
+      - co je dostupne
+      - ukáž dostupné produkty
+      - ukaz dostupne produkty
+
+  - intent: search_product
+    examples: |
+      - hľadám [Nike Air Max](product_name)
+      - hľadám [Adidas Ultraboost](product_name)
+      - hľadám [GymBeam Protein 1kg](product_name)
+      - ukáž mi [Nike Air Max](product_name)
+      - ukáž mi [iPhone](product_name)
+      - ukáž [iPhone](product_name)
+      - nájdi [Nike Air Max](product_name)
+      - chcem nájsť [Adidas Ultraboost](product_name)
+      - máš [GymBeam Protein 1kg](product_name)?
+      - zobraz [Nike Air Max](product_name)
+      - ukáž mi produkty v kategórii [shoes](category)
+      - hľadám niečo z kategórie [supplements](category)
+      - ukáž produkty z kategórie [shoes](category)
+      - ukaz produkty z kategorie [shoes](category)
+      - zobraz kategóriu [shoes](category)
+      - zobraz kategoriu [shoes](category)
+      - ukáž [shoes](category)
+      - ukaz [shoes](category)
+      - hľadám [shoes](category)
+      - hladam [shoes](category)
+      - ukáž [supplements](category)
+      - ukaz [supplements](category)
+      - nájdi mi [tenisky](category)
+      - hľadám [topánky](category)
+      - hladam [topanky](category)
+      - ukáž mi [topánky](category)
+      - ukaz mi [topanky](category)
+      - chcem [boty](category)
+      - ukáž [doplnky](category)
+      - ukaz [doplnky vyzivy](category)
+      - hľadám [proteiny](category)
+      - [topánky](category)
+      - [topanky](category)
+      - [shoes](category)
+      - [tenisky](category)
+      - [boty](category)
+      - [doplnky](category)
+      - [doplnky výživy](category)
+      - [doplnky vyzivy](category)
+      - [proteiny](category)
+      - [supplements](category)
+
+  - intent: check_stock
+    examples: |
+      - je [Nike Air Max](product_name) na sklade?
+      - je [Adidas Ultraboost](product_name) na sklade?
+      - máte [Adidas Ultraboost](product_name) dostupné?
+      - dostupnosť [GymBeam Protein 1kg](product_name)
+      - skontroluj sklad pre [Nike Air Max](product_name)
+      - je to na sklade?
+      - je dostupný tento produkt?
+      - je dostupný?
+      - máte to na sklade?
+      - je skladom?
+      - máte tento produkt dostupný?
+      - je to dostupné?
+      - koľko kusov je skladom?
+      - je produkt momentálne na sklade?
+      - over dostupnosť produktu
+      - je tento produkt na sklade?
+
+  - intent: order_status
+    examples: |
+      - aký je stav objednávky [ORD1002](order_id)?
+      - kde je moja objednávka [ORD1001](order_id)
+      - stav objednávky [ORD1001](order_id)
+      - stav objednávky [ORD1002](order_id)
+      - chcem vedieť stav objednávky [ORD1001](order_id)
+      - stav objednávky
+      - moja objednávka
+      - kde je moja objednávka
+
+  - intent: add_to_cart
+    examples: |
+      - pridaj [Nike Air Max](product_name) do košíka
+      - pridaj [Adidas Ultraboost](product_name) do košíka
+      - pridaj [GymBeam Protein 1kg](product_name) do košíka
+      - vlož [Nike Air Max](product_name) do košíka
+      - chcem do košíka [GymBeam Protein 1kg](product_name)
+      - daj [Nike Air Max](product_name) do košíka
+      - pridaj do košíka [Nike Air Max](product_name)
+
+  - intent: remove_from_cart
+    examples: |
+      - odstráň [Nike Air Max](product_name) z košíka
+      - odstran [Nike Air Max](product_name) z košíka
+      - vymaž [GymBeam Protein 1kg](product_name) z košíka
+      - vymaz [GymBeam Protein 1kg](product_name) z košíka
+      - zmaž [Adidas Ultraboost](product_name) z košíka
+      - odstráň produkt z košíka
+
+  - intent: show_cart
+    examples: |
+      - ukáž košík
+      - ukáž môj košík
+      - čo mám v košíku
+      - zobraz môj košík
+      - košík
+      - obsah košíka
+
+  - intent: clear_cart
+    examples: |
+      - vymaž košík
+      - zruš košík
+      - vyprázdni košík
+      - odstráň všetko z košíka
+      - vymaž celý košík
+
+  - intent: shipping_info
+    examples: |
+      - koľko stojí doprava
+      - aká je cena dopravy
+      - ako dlho trvá doručenie
+      - kedy mi to príde
+      - informácie o doprave
+
+  - intent: payment_info
+    examples: |
+      - aké sú možnosti platby
+      - ako môžem zaplatiť
+      - podporujete platbu kartou
+      - dá sa platiť na dobierku
+      - informácie o platbe
+
+  - intent: return_policy
+    examples: |
+      - môžem vrátiť tovar
+      - aká je politika vrátenia
+      - do koľkých dní môžem vrátiť produkt
+      - ako funguje vrátenie tovaru
+      - chcem vrátiť tovar
+
+  - intent: affirm
+    examples: |
+      - áno
+      - ano
+      - jasné
+      - hej
+      - určite
+      - presne tak
+      - súhlasím
+      - ok
+
+  - intent: deny
+    examples: |
+      - nie
+      - nechcem
+      - nesúhlasím
+      - určite nie
+      - no
+      - n
+
+  - intent: nlu_fallback
+    examples: |
+      - asdfghjkl
+      - zxcvbnm
+
+  - regex: order_id
+    examples: |
+      - ORD[0-9]{4,}
+
+  - lookup: product_name
+    examples: |
+      - Nike Air Max
+      - Adidas Ultraboost
+      - GymBeam Protein 1kg
+      - iPhone
+
+  - intent: out_of_scope
+    examples: |
+      - lalala blabla
+      - asdfgh
+      - qwerty
+      - neviem čo píšem
+      - blbost
+      - random text
+      - test test test
+      - xyz xyz
+      - hocico
+      - nič
+
+  - lookup: category
+    examples: |
+      - shoes
+      - topánky
+      - topanky
+      - boty
+      - tenisky
+      - supplements
+      - doplnky
+      - doplnky výživy
+      - doplnky vyzivy
+      - suplementy
+      - proteiny
+
+  - synonym: shoes
+    examples: |
+      - topánky
+      - topanky
+      - shoes
+      - boty
+      - tenisky
+
+  - synonym: supplements
+    examples: |
+      - doplnky
+      - doplnky výživy
+      - doplnky vyzivy
+      - suplementy
+      - supplements
+      - proteiny

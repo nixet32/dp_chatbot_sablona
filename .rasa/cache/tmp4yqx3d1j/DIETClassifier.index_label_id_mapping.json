@@ -1,0 +1,14 @@
+{
+  "0": "add_to_cart",
+  "1": "affirm",
+  "2": "check_stock",
+  "3": "deny",
+  "4": "goodbye",
+  "5": "greet",
+  "6": "help",
+  "7": "nlu_fallback",
+  "8": "order_status",
+  "9": "remove_from_cart",
+  "10": "search_product",
+  "11": "show_cart"
+}

@@ -1,0 +1,42 @@
+{
+  "order_id": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 5,
+    "confused_with": {}
+  },
+  "product_name": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 71,
+    "confused_with": {}
+  },
+  "category": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 1.0,
+    "recall": 0.9743589743589743,
+    "f1-score": 0.9870129870129869,
+    "support": 78
+  },
+  "macro avg": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 78
+  },
+  "weighted avg": {
+    "precision": 0.9743589743589743,
+    "recall": 0.9743589743589743,
+    "f1-score": 0.9743589743589743,
+    "support": 78
+  },
+  "accuracy": 0.9946236559139785
+}

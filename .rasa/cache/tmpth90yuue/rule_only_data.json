@@ -1,0 +1,7 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "stock_form",
+    "order_status_form"
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "order_id",
+    "pattern": "ORD[0-9]{4,}"
+  },
+  {
+    "name": "product_name",
+    "pattern": "(\\bNike\\ Air\\ Max\\b|\\bAdidas\\ Ultraboost\\b|\\bGymBeam\\ Protein\\ 1kg\\b|\\biPhone\\b)"
+  },
+  {
+    "name": "category",
+    "pattern": "(\\bshoes\\b|\\bsupplements\\b|\\belectronics\\b|\\bphone\\b|\\bphones\\b|\\btenisky\\b|\\btopánky\\b|\\btopanky\\b|\\bdoplnky\\b|\\bproteíny\\b|\\bproteiny\\b)"
+  }
+]

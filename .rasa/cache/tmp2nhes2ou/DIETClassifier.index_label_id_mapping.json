@@ -1,0 +1,20 @@
+{
+  "0": "add_to_cart",
+  "1": "affirm",
+  "2": "check_stock",
+  "3": "clear_cart",
+  "4": "deny",
+  "5": "goodbye",
+  "6": "greet",
+  "7": "help",
+  "8": "list_products",
+  "9": "nlu_fallback",
+  "10": "order_status",
+  "11": "out_of_scope",
+  "12": "payment_info",
+  "13": "remove_from_cart",
+  "14": "return_policy",
+  "15": "search_product",
+  "16": "shipping_info",
+  "17": "show_cart"
+}

@@ -1,0 +1,35 @@
+stories:
+  - story: greeting test
+    steps:
+      - user: |
+          ahoj
+        intent: greet
+      - action: utter_greet
+
+  - story: product search test
+    steps:
+      - user: |
+          hľadám Nike Air Max
+        intent: search_product
+      - action: action_search_product
+
+  - story: stock check test
+    steps:
+      - user: |
+          čo je na sklade
+        intent: list_in_stock_products
+      - action: action_list_in_stock_products
+
+  - story: add to cart test
+    steps:
+      - user: |
+          pridaj Nike Air Max do košíka
+        intent: add_to_cart
+      - action: action_add_to_cart
+
+  - story: fallback test
+    steps:
+      - user: |
+          asdasdasd
+        intent: nlu_fallback
+      - action: utter_fallback

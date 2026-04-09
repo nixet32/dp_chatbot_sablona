@@ -1,0 +1,14 @@
+[
+  {
+    "order_id": "ORD1001",
+    "status": "shipped",
+    "items": [{ "product_id": "P003", "qty": 1 }],
+    "delivery_method": "courier"
+  },
+  {
+    "order_id": "ORD1002",
+    "status": "processing",
+    "items": [{ "product_id": "P001", "qty": 1 }],
+    "delivery_method": "pickup"
+  }
+]

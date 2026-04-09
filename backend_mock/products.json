@@ -1,0 +1,29 @@
+[
+  {
+    "id": "P001",
+    "name": "Nike Air Max",
+    "category": "shoes",
+    "brand": "Nike",
+    "price": 129.99,
+    "attributes": { "color": "black", "size": [40, 41, 42, 43] },
+    "description": "Comfort running shoes for everyday use."
+  },
+  {
+    "id": "P002",
+    "name": "Adidas Ultraboost",
+    "category": "shoes",
+    "brand": "Adidas",
+    "price": 149.99,
+    "attributes": { "color": "white", "size": [41, 42, 43, 44] },
+    "description": "Premium cushioning with Boost technology."
+  },
+  {
+    "id": "P003",
+    "name": "GymBeam Protein 1kg",
+    "category": "supplements",
+    "brand": "GymBeam",
+    "price": 24.9,
+    "attributes": { "flavor": ["chocolate", "vanilla"] },
+    "description": "Whey protein for muscle recovery."
+  }
+]

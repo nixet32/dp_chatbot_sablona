@@ -1,0 +1,148 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - help
+  - search_product
+  - check_stock
+  - order_status
+  - add_to_cart
+  - remove_from_cart
+  - show_cart
+  - nlu_fallback
+  - clear_cart
+  - shipping_info
+  - payment_info
+  - return_policy
+  - list_products
+  - out_of_scope
+  - list_in_stock_products
+
+entities:
+  - product_name
+  - category
+  - order_id
+
+slots:
+  product_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: product_name
+      - type: from_text
+        conditions:
+          - active_loop: stock_form
+            requested_slot: product_name
+
+  category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: category
+
+  order_id:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: order_id
+      - type: from_text
+        conditions:
+          - active_loop: order_status_form
+            requested_slot: order_id
+
+  cart:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  candidate_product_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  confirm_product:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+  utter_greet:
+    - text: "Ahoj! Som e-shop asistent. S čím pomôžem? "
+
+  utter_goodbye:
+    - text: "Dovidenia! Keby niečo, som tu."
+
+  utter_help:
+    - text:
+        "Viem vyhľadávať produkty, skontrolovať sklad, zistiť stav objednávky a pracovať s košíkom.
+        Skús napríklad: hľadám Nike Air Max, je to na sklade, stav objednávky ORD1001 alebo ukáž košík."
+
+  utter_ask_product_name:
+    - text: "O aký produkt ide? Napíš prosím názov."
+
+  utter_ask_category:
+    - text: "V akej kategórii ho hľadáš? (napr. shoes, supplements)"
+
+  utter_ask_order_id:
+    - text: "Napíš prosím číslo objednávky (napr. ORD1002)."
+
+  utter_fallback:
+    - text: "Prepáč, tomu som nerozumel. Skús to preformulovať alebo napíš „pomoc“."
+
+  utter_confirm_product_for_stock:
+    - text: "Myslíš {candidate_product_name}? (áno/nie)"
+
+  utter_shipping_info:
+    - text: "Doručenie zvyčajne trvá 2 až 5 pracovných dní. Cena dopravy je 4.99 €."
+
+  utter_payment_info:
+    - text: "Podporované spôsoby platby sú platba kartou, dobierka a bankový prevod."
+
+  utter_return_policy:
+    - text: "Tovar je možné vrátiť do 14 dní od doručenia, pokiaľ nie je poškodený alebo použitý."
+
+  utter_cart_cleared:
+    - text: "Košík som vyprázdnil."
+
+  utter_list_products:
+    - text: "Môžem ti ponúknuť napríklad Nike Air Max, Adidas Ultraboost, GymBeam Protein 1kg."
+
+actions:
+  - action_route_check_stock
+  - action_set_candidate_as_product
+  - action_clear_candidate
+  - action_search_product
+  - action_check_stock
+  - action_get_order_status
+  - action_add_to_cart
+  - action_remove_from_cart
+  - action_show_cart
+  - action_reset_product_name
+  - action_clear_cart
+  - action_reset_order_id
+  - validate_stock_form
+  - validate_order_status_form
+  - action_list_products
+  - action_list_in_stock_products
+
+forms:
+  stock_form:
+    required_slots:
+      - product_name
+
+  order_status_form:
+    required_slots:
+      - order_id
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
