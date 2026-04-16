@@ -119,6 +119,12 @@ nlu:
       - [doplnky vyzivy](category)
       - [proteiny](category)
       - [supplements](category)
+      - [Nike Air Max](product_name)
+      - [Adidas Ultraboost](product_name)
+      - [GymBeam Protein 1kg](product_name)
+      - [Nike Air](product_name)
+      - [Adidas](product_name)
+      - [GymBeam Protein](product_name)
 
   - intent: check_stock
     examples: |
@@ -149,6 +155,47 @@ nlu:
       - stav objednávky
       - moja objednávka
       - kde je moja objednávka
+
+  - intent: product_info
+    examples: |
+      - povedz mi o [Nike Air Max](product_name)
+      - povedz mi niečo o [Nike Air Max](product_name)
+      - povedz mi nieco o [Nike Air Max](product_name)
+      - čo je [Nike Air Max](product_name)
+      - co je [Nike Air Max](product_name)
+      - aký je [Nike Air Max](product_name)
+      - aky je [Nike Air Max](product_name)
+      - daj mi info o [Nike Air Max](product_name)
+      - info o [Nike Air Max](product_name)
+      - informácie o [Nike Air Max](product_name)
+      - informacie o [Nike Air Max](product_name)
+      - detail [Nike Air Max](product_name)
+      - ukáž detail [Nike Air Max](product_name)
+      - ukaz detail [Nike Air Max](product_name)
+      - čo vieš o [Nike Air Max](product_name)
+      - co vies o [Nike Air Max](product_name)
+      - povedz mi o [Adidas Ultraboost](product_name)
+      - povedz mi niečo o [Adidas Ultraboost](product_name)
+      - povedz mi nieco o [Adidas Ultraboost](product_name)
+      - čo je [Adidas Ultraboost](product_name)
+      - co je [Adidas Ultraboost](product_name)
+      - aký je [Adidas Ultraboost](product_name)
+      - aky je [Adidas Ultraboost](product_name)
+      - info o [Adidas Ultraboost](product_name)
+      - detail [Adidas Ultraboost](product_name)
+      - čo vieš o [Adidas Ultraboost](product_name)
+      - co vies o [Adidas Ultraboost](product_name)
+      - povedz mi o [GymBeam Protein 1kg](product_name)
+      - povedz mi niečo o [GymBeam Protein 1kg](product_name)
+      - povedz mi nieco o [GymBeam Protein 1kg](product_name)
+      - čo je [GymBeam Protein 1kg](product_name)
+      - co je [GymBeam Protein 1kg](product_name)
+      - aký je [GymBeam Protein 1kg](product_name)
+      - aky je [GymBeam Protein 1kg](product_name)
+      - info o [GymBeam Protein 1kg](product_name)
+      - detail [GymBeam Protein 1kg](product_name)
+      - čo vieš o [GymBeam Protein 1kg](product_name)
+      - co vies o [GymBeam Protein 1kg](product_name)
 
   - intent: add_to_cart
     examples: |

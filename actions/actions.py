@@ -71,6 +71,29 @@ def _get_stock_for_product(product_id: str, stock_data: List[Dict[str, Any]]) ->
     item = next((s for s in stock_data if s.get("product_id") == product_id), None)
     return int(item.get("stock", 0)) if item else 0
 
+def _display_category(value: Optional[str]) -> str:
+    if not value:
+        return "nezaradené"
+
+    mapping = {
+        "shoes": "topánky",
+        "supplements": "doplnky výživy",
+        "electronics": "elektronika",
+        "phones": "telefóny",
+        "furniture": "nábytok",
+    }
+
+    value_low = value.strip().lower()
+    return mapping.get(value_low, value)
+
+
+def _get_product_description(product: Dict[str, Any]) -> str:
+    description = product.get("description")
+    if description and str(description).strip():
+        return str(description).strip()
+
+    return "Popis produktu nie je k dispozícii."
+
 class ActionRouteCheckStock(Action):
     def name(self) -> Text:
         return "action_route_check_stock"
@@ -176,7 +199,7 @@ class ActionSearchProduct(Action):
                 )
                 return [SlotSet("category", latest_category), SlotSet("product_name", None)]
 
-            lines = [f"- {p['name']} ({p['category']}), {p['price']} €" for p in results[:5]]
+            lines = [f"- {p['name']} ({_display_category(p.get('category'))}), {p['price']} €" for p in results[:5]]
             dispatcher.utter_message(text="Tu je niekoľko produktov z ponuky:\n" + "\n".join(lines))
             return [SlotSet("category", latest_category), SlotSet("product_name", None)]
 
@@ -192,8 +215,7 @@ class ActionSearchProduct(Action):
             p = _find_product(products, product_name)
             if p:
                 dispatcher.utter_message(
-                    text=f"Našiel som tieto produkty:\n- {p['name']} ({p['category']}), {p['price']} €"
-                )
+                text=f"Našiel som tieto produkty:\n- {p['name']} ({_display_category(p.get('category'))}), {p['price']} €"                )
                 return [SlotSet("product_name", p["name"])]
             else:
                 dispatcher.utter_message(
@@ -239,7 +261,7 @@ class ActionListProducts(Action):
         lines = []
         for p in products[:10]:
             name = p.get("name", "Neznámy produkt")
-            category = p.get("category", "bez kategórie")
+            category = _display_category(p.get("category"))
             price = p.get("price", 0)
             lines.append(f"- {name} ({category}), {price} €")
 
@@ -273,7 +295,7 @@ class ActionListInStockProducts(Action):
 
         lines = []
         for p, qty in available[:10]:
-            lines.append(f"- {p['name']} ({p['category']}), {qty} ks")
+            lines.append(f"- {p['name']} ({_display_category(p.get('category'))}), {qty} ks")
 
         dispatcher.utter_message(
             text="Momentálne sú na sklade napríklad tieto produkty:\n" + "\n".join(lines)
@@ -549,3 +571,77 @@ class ActionResetOrderId(Action):
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
         return [SlotSet("order_id", None)]
+
+class ActionProductInfo(Action):
+    def name(self) -> Text:
+        return "action_product_info"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        products = get_products()
+        stock = get_stock()
+
+        latest_entities = tracker.latest_message.get("entities", []) or []
+
+        latest_product = None
+        for e in latest_entities:
+            if e.get("entity") == "product_name" and e.get("value"):
+                latest_product = e.get("value")
+
+        product_name = latest_product if latest_product else tracker.get_slot("product_name")
+
+        if not product_name:
+            dispatcher.utter_message(
+                text="O aký produkt ide? Napíš prosím jeho názov."
+            )
+            return []
+
+        product = _find_product(products, product_name)
+
+        if not product:
+            dispatcher.utter_message(
+                text=f"Produkt „{product_name}“ som nenašiel. Skús presnejší názov."
+            )
+            return [SlotSet("product_name", None)]
+
+        qty = _get_stock_for_product(product["id"], stock)
+        category_display = _display_category(product.get("category"))
+        description = _get_product_description(product)
+        brand = product.get("brand", "neznáma značka")
+        price = product.get("price", "neznáma")
+        attributes = product.get("attributes", {})
+
+        attr_parts = []
+        if "color" in attributes:
+            attr_parts.append(f"farba: {attributes['color']}")
+        if "size" in attributes:
+            sizes = ", ".join(str(s) for s in attributes["size"])
+            attr_parts.append(f"veľkosti: {sizes}")
+        if "flavor" in attributes:
+            flavors = ", ".join(str(f) for f in attributes["flavor"])
+            attr_parts.append(f"príchute: {flavors}")
+
+        attributes_text = ""
+        if attr_parts:
+            attributes_text = "\nVlastnosti: " + "; ".join(attr_parts)
+
+        if qty > 0:
+            stock_text = f"Momentálne je na sklade {qty} ks."
+        else:
+            stock_text = "Momentálne nie je na sklade."
+
+        dispatcher.utter_message(
+            text=(
+                f"{product['name']} je produkt značky {brand} z kategórie {category_display}.\n"
+                f"Cena: {price} €.\n"
+                f"Popis: {description}"
+                f"{attributes_text}\n"
+                f"{stock_text}"
+            )
+        )
+
+        return [SlotSet("product_name", product["name"])]

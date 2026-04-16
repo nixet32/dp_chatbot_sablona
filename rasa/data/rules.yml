@@ -123,3 +123,8 @@ rules:
     steps:
       - intent: greet
       - action: utter_greet
+
+  - rule: product info
+    steps:
+      - intent: product_info
+      - action: action_product_info

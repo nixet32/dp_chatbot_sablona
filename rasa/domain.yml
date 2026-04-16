@@ -20,6 +20,7 @@ intents:
   - list_products
   - out_of_scope
   - list_in_stock_products
+  - product_info
 
 entities:
   - product_name
@@ -133,6 +134,7 @@ actions:
   - validate_order_status_form
   - action_list_products
   - action_list_in_stock_products
+  - action_product_info
 
 forms:
   stock_form:

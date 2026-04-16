@@ -6,7 +6,7 @@
     "brand": "Nike",
     "price": 129.99,
     "attributes": { "color": "black", "size": [40, 41, 42, 43] },
-    "description": "Comfort running shoes for everyday use."
+    "description": "Pohodlné bežecké topánky vhodné na každodenné nosenie."
   },
   {
     "id": "P002",
@@ -15,7 +15,7 @@
     "brand": "Adidas",
     "price": 149.99,
     "attributes": { "color": "white", "size": [41, 42, 43, 44] },
-    "description": "Premium cushioning with Boost technology."
+    "description": "Športové topánky s prémiovým tlmením a technológiou Boost."
   },
   {
     "id": "P003",
@@ -24,6 +24,6 @@
     "brand": "GymBeam",
     "price": 24.9,
     "attributes": { "flavor": ["chocolate", "vanilla"] },
-    "description": "Whey protein for muscle recovery."
+    "description": "Srvátkový proteín vhodný na regeneráciu svalov po tréningu."
   }
 ]
